@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="test">
+<div ng-controller="c1">
+<p>{{ msg }}</p>
+<p ng-bind="abc"></p>
+</div>
+
+<div ng-controller="c2">
+<p>{{ msg }}</p>
+</div>
+</div>
+
+<script>
+var obj = angular.module("test",[]);
+obj.controller("c1",function($scope){ 
+$scope.msg = "hello controller 1"; 
+$scope.abc = "hello controller abc";
+ });
+ obj.controller("c2",function($scope){
+ 
+$scope.msg = "hello controller 2"; 
+});
+</script>
+</body>
+</html>

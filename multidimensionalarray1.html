@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="contact=[{'name':'sneha','email':'sneha313singh@gmail.com','mobile':'9289832','city':'bangalore'},
+{'name':'sneha','email':'abc@gmail.com','mobile':'9289832','city':'hyderbada'}]">
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>City</th>
+</tr>
+<tr ng-repeat="details in contact">
+<td>{{ details.name }}</td>
+<td>{{ details.email }}</td>
+<td>{{ details.mobile }}</td>
+<td>{{ details.city }}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

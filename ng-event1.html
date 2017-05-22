@@ -1,0 +1,94 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+
+<script src="js/js/sanitize.js"></script>
+</head>
+<body>
+<div ng-app="practise">
+<div ng-controller="control">
+
+<p>{{message}}</p>
+<button ng-click="one()">one</button>
+<button ng-click="two()">two</button>
+<p ng-bind="sneh"></p>
+</div>
+<div ng-controller="key">
+<h4 ng-bind="message"></h4>
+ng-keypress:<input type="text" ng-model="a" ng-keypress="three()">
+ng-keyup:<input type="text" ng-model="b" ng-keypress="four()">
+ng-change:
+<select ng-model="c" ng-change="my(c)">
+<option value="delhi">delhi</option>
+<option value="bangalore">bangalore</option>
+<option value="kolkata">kolkata</option>
+</select>
+</div>
+
+<div ng-controller="myself">
+<div ng-include="userlist1.html"></div>
+<button ng-click="five()">about</button>
+<button ng-dblclick="six()">signup</button>
+<p ng-bind-html="progress"></p>
+</div>
+</div>
+<script>
+var app=angular.module("practise",["ngSanitize"]);
+app.controller("myself",function($scope,$http){
+$http.get("user2.json").then(function(response){
+$scope.list=response.data;
+});
+$scope.five=function($response){
+$http.get("about.html").then(function(response){
+$scope.progress=response.data;
+});
+}
+$scope.six=function(response){
+$http.get("signup.html").then(function(response){
+$scope.progress=response.data;
+});
+}
+});
+//app.controller("myself",function($scope,$http){
+//$http.get("user2.json").then(function(response){
+//$scope.list=response.data;
+//});
+//$scope.five=function(){
+//$http.get("about.html").then(function(response){
+//$scope.progress=response.data;
+//});
+//}
+//$scope.six=function(){
+//$http.get("signup.html").then(function(response){
+//$scope.progress=response.data;
+//});
+//}
+//});
+app.controller("control",function($scope){
+$scope.message=50;
+$scope.one=function()
+{
+$scope.sneh="this is lovely";
+}
+$scope.two=function(){
+$scope.sneh="thhis is my name";
+$scope.message++;
+}
+});
+app.controller("key",function($scope){
+$scope.three=function(){
+$scope.message="this is on key press : "+$scope.a;
+}
+$scope.four=function()
+{
+$scope.message="this is my personal data : "+$scope.b;
+}
+$scope.my=function(cityname)
+{
+$scope.message=cityname;
+}
+});
+
+</script>
+</body>
+</html>

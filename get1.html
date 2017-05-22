@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<script src="js/js/angular.js"></script>
+<script src="js/js/sanitize.js"></script>
+</head>
+<body>
+<div ng-app="myTest">
+<div ng-controller="myuser">
+
+<table class="table table-bordered">
+
+<tr class="success">
+<th>Name</th>
+<th>Mobile</th>
+<th>City</th>
+</tr>
+
+<tr ng-repeat="details in user">
+<td class="danger">{{ details.name }}</td>
+<td class="warning">{{ details.mobile }}</td>
+<td class="info">{{ details.city }}</td>
+
+</tr>
+</table>
+<hr color="red">
+<div ng-include="'userlist.html'"></div>
+
+<hr color="red">
+<button ng-click="one()">About Us</button>
+<button ng-click="two()">Our service</button>
+<button ng-click="three()">Sign Up</button>
+
+<p ng-bind-html="alldata"><!--ng-bind-html will convert html tag into html output-->
+</p>
+</div>
+</div>
+
+<script>
+//creation of object of ng-app
+var obj=angular.module("myTest",["ngSanitize"]);
+//creation of object of ng-controller
+obj.controller("myuser",function($scope,$http){//scope helps to communicate inside controller
+$http.get("user2.json").then(function(response){
+$scope.user=response.data;
+});
+
+$scope.one=function(){
+$http.get("about.html").then(function(response){
+$scope.alldata=response.data;
+});
+}
+$scope.three=function(){
+
+$http.get("signup.html").then(function(response){
+$scope.alldata=response.data;
+});
+}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+	<script src="js/angular.js"></script>
+	<script src="js/route.js"></script>
+	<script src="js/sanitize.js"></script>
+</head>
+<body>
+	<div ng-app="myapp">
+		<table align="center" cellpadding="10">
+			<tr>
+				<th><a href="#/">My Home</a></th>
+				<th><a href="#about">About Us</a></th>
+				<th><a href="#service">Services</a></th>
+				<th><a href="#signup">SignUp</a></th>
+				<th><a href="#login">Login</a></th>
+			</tr>
+		</table>
+		<hr color="red" size="1">
+		<ng-view></ng-view>
+		
+	</div>
+	<script>
+		var obj=angular.module("myapp",['ngRoute','ngSanitize']);
+		obj.config(function($routeProvider) {
+		$routeProvider
+		.when("/", {
+        templateUrl : "main.html"
+    })
+	.when("/about", {
+        templateUrl : "about.html"
+    })
+	.when("/service", {
+        templateUrl : "ourservices.html"
+    })
+	.when("/signup", {
+        templateUrl : "newuser.html"
+    })
+	.when("/login", {
+        templateUrl : "userlogin.html"
+    })
+	});
+	////controller start
+	obj.controller("mylogin",function($scope){
+		$scope.message="this is from my login controller";
+	});
+	obj.controller("newuser",function($scope){
+		$scope.message="this is from my newuser controller";
+	});
+	obj.controller("ourservice",function($scope){
+		$scope.message="this is from my ourservice controller";
+	});
+	obj.controller("about",function($scope){
+		$scope.message="this is from my about controller";
+	});
+	obj.controller("main",function($scope){
+		$scope.message="this is from my m controller";
+	});
+	</script>
+</body>
+</html>

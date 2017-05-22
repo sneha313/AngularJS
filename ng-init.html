@@ -1,0 +1,18 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="a=100; b=200;">
+<p>{{ a + b }}</p>
+<p ng-bind="a+b"></p>
+
+<p><input type="number" ng-model= "a" ></p>
+<p><input type="number" ng-model= "b"></p>
+
+<p><input type="number" ng-model= "a + b" ></p>
+</div>
+
+<p>{{a+b}}</p>
+</body>
+</html>

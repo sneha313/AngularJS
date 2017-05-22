@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="js/angular.js"></script>
+<script src="js/route.js"></script>
+<script src="js/sanitize.js"></script>
+</head>
+<body>
+<div ng-app="info">
+<table>
+<tr>
+<th><a href="#/">home</a></th>
+<th><a href="#about">about</a></th>
+<th><a href="#contact">contact</a></th>
+</tr>
+</table>
+<div class="ng-view"></div>
+</div>
+<script>
+var app=angular.module("info",['ngRoute','ngSanitize']);
+app.config(function($routeProvider){
+$routeProvider
+.when("/",{
+templateUrl : "main.html"
+})
+.when("/about",{
+templateUrl : "about.html"
+})
+.when("/contact",{
+templateUrl : "newuser.html"
+})
+});
+
+//controller start
+app.controller("main",function($scope){
+$scope.message="this is my main page";
+});
+app.controller("about",function($scope){
+$scope.message="this is about page";
+});
+app.controller("newuser",function($scope){
+$scope.message="this is contact page"
+});
+</script>
+</body>
+</html>
+

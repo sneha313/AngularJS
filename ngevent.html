@@ -1,0 +1,82 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="mytest">
+<div ng-controller="mouse">
+<h4>Angular js mouse events</h4>
+<h1> {{ message }}</h1>
+<button ng-click="one()">1 click</button>
+<button ng-dblclick="two()">2 click</button>
+<button ng-mousemove="three()">Mouse move</button>
+<button ng-mouseout="four()">mouse out</button>
+<button ng-mousedown="five()">mouse down</button>
+Ng Change:<select ng-model="city" ng-Change="getcity(city)">
+<option value="">choose city</option>
+<option value="bangalore">Bangalore</option>
+<option value="delhi">Delhi</option>
+<option value="kolkata">Kolkata</option>
+</select>
+</div><!--mouse controller end-->
+<hr color="red">
+<div ng-controller="keyboard">
+<h1>{{ message }}</h1>
+ng keypress:<input type="text" ng-model="a" ng-keypress="six()"><br>
+ng keydown: <input type="text" ng-model="b" ng-keydown="seven()"><br>
+ng keyup:<input type="text" ng-model="c" ng-keyup="eight()"><br>
+ng focus:<input type="text" ng-model="d" ng-keyup="nine()"><br>
+ng blur:<input type="text" ng-model="e" ng-keyup="ten()"><br>
+</div><!--keyboard controller end-->
+</div>
+<script>
+//object create
+var obj=angular.module("mytest",[]);
+obj.controller("keyboard",function($scope){
+$scope.six=function(){
+$scope.message="this is on key press value is : "+$scope.a;
+}
+$scope.seven=function(){
+$scope.message="this is on key down values is : "+$scope.b;
+}
+$scope.eight=function(){
+$scope.message="this is key up : "+$scope.c;
+}
+$scope.nine=function(){
+$scope.message="this is focus : "+$scope.d;
+}
+$scope.ten=function(){
+$scope.message="this is blur : "+$scope.e;
+}
+});
+
+
+
+obj.controller("mouse",function($scope){
+//initialize message variable
+$scope.message=100;
+//function call
+$scope.one=function(){
+$scope.message++;
+}
+$scope.two=function(){
+$scope.message--;
+}
+$scope.three=function(){
+$scope.message+=2;
+}
+$scope.four=function(){
+$scope.message="this is mouse out event";
+}
+$scope.five=function(){
+alert("it is mouse down");
+}
+
+$scope.getcity=function(cityname)
+{
+$scope.message="you have selected:"+cityname;
+}
+});
+</script>
+</body>
+</html>

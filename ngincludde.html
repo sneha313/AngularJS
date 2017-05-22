@@ -1,0 +1,43 @@
+<html>
+<head>
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="myTest">
+<div ng-controller="user" ng-init="contact=[{'name':'sneha','mobile':'9289832','city':'bangalore'},
+{'name':'sneha','mobile':'9289832','city':'hyderbad'},
+{'name':'sneha','mobile':'9289832','city':'hyderbad'},
+{'name':'sneha','mobile':'9289832','city':'hyderbad'},
+{'name':'sneha','mobile':'9289832','city':'hyderbad'}]">
+
+<table class="table table-bordered">
+
+<tr class="success">
+<th>Name</th>
+<th>Mobile</th>
+<th>City</th>
+</tr>
+
+<tr ng-repeat="details in user">
+<td class="danger">{{ details.name }}</td>
+<td class="warning">{{ details.mobile }}</td>
+<td class="info">{{ details.city }}</td>
+
+</tr>
+</table>
+
+<div ng-include="'userlist.html'"></div>
+</div>
+
+</div>
+
+<script>
+//creation of object of ng-app
+var obj=angular.module("myTest",[]);
+//creation of object of ng-controller
+obj.controller("user",function($scope){
+});
+</script>
+</body>
+</html>

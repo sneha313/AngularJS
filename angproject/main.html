@@ -1,0 +1,27 @@
+<div ng-controller="main">
+<table class="table table-bordered table-hover">
+<caption class="text-center">
+search by key:<input type="text" ng-model="skey" placeholder="search here"><br><b>UserList</b>
+</caption>
+<tr>
+<th ng-click="test('name')">Full Name</th>
+<th ng-click="test('gender')">Gender</th>
+<th ng-click="test('age')">Age</th>
+<th ng-click="test('mobile')">Mobile No</th>
+<th ng-click="test('city')">City</th>
+<th>Action</th>
+</tr>
+<tr ng-repeat="userrow in user | filter: skey | orderBy: fieldname"><!--using filter here for filtering  and sorting details in ascending order 
+if we want to sort data in descending order we will use minus name (-name) then it will give descending order data details-->
+<td>{{userrow.name}}</td>
+<td>{{userrow.gender}}</td>
+<td>{{userrow.age}}</td>
+<td>{{userrow.mobile}}</td>
+<td>{{userrow.city}}</td>
+<td><a href=''><i class="glyphicon glyphicon-edit"></i></a>
+&nbsp;
+<a href=''><i class="glyphicon glyphicon-trash"></i></a>
+</td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,19 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="a=['Mango','Apple','Orange','Banana'];">
+<p>{{ a[3] }}</p>
+<ul>
+<li ng-repeat="item in a"> {{ item}}</li>
+</ul>
+<select>
+<option>choose item</option>
+
+<option ng-repeat="x in a">{{x}}</option>
+</select>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="name">
+<div ng-controller="control" ng-init="user=[{'name':'sneha','mobile':'93934433','city':'bangalore'},
+{'name':'alok','mobile':'2832993','city':'bangalore'}];">
+
+<table>
+<tr><th>Name</th>
+<th>Mobile</th>
+<th>City</th>
+</tr>
+<tr ng-repeat="details in user">
+<td>{{details.name}}</td>
+<td>{{details.mobile}}</td>
+<td>{{details.city}}</td>
+</tr>
+</table>
+<div ng-include="'userlist.html'">
+</div>
+</div>
+
+<script>
+var obj=angular.module("name",[]);
+obj.controller('control',function($scope){
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="a=['name','mobile','city'];">
+<ul>
+<li ng-repeat="contact in a">{{ contact }}</li>
+</ul>
+<select>
+<option>choose option</option>
+<option ng-repeat="item2 in a">{{ item2 }}</option>
+</select>
+</div>
+</body>
+</html>

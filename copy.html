@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="test1">
+<div ng-controller="control">
+<h1>{{message}}</h1>
+<button ng-click="one()">1 click</button>
+<button ng-dblclick="two()">2 click</button>
+</div>
+
+<div ng-controller="control2">
+<h1>{{message}}</h1>
+ng keypress<input type="text" ng-model="a"ng-keypress="six()">
+ng keydown<input type="text" ng-model="b" ng-keydown="seven()">
+</div>
+</div>
+
+<script>
+var obj=angular.module("test1",[]);
+obj.controller("control",function($scope){
+$scope.message=100;
+$scope.one=function()
+{
+$scope.message++;
+}
+$scope.two=function()
+{
+$scope.message+=2;
+}
+});
+
+obj.controller("control2",function($scope){
+$scope.six=function()
+{
+$scope.message="this is for testing purpose : "+$scope.a;
+}
+$scope.seven=function()
+{
+$scope.message="this is ng keypress down : "+$scope.b;
+}
+});
+</script>
+</body>
+</html>

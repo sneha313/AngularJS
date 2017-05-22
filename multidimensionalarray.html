@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="js/js/angular.js"></script>
+</head>
+<body>
+<div ng-app="" ng-init="
+user=[{'name':'aaaa', 'mobile':'999999'},
+{'name':'bbbb', 'mobile':'899988998'}]">
+<table>
+<tr><th>Full  Name</th>
+<th>Mobile number</th>
+</tr>
+<tr ng-repeat="row in user">
+<td>{{ row.name }}</td>
+<td>{{ row.mobile }}</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
